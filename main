@@ -1,1 +1,21 @@
+import time
+import os
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def print_protection_message():
+    animations = ["-", "\\", "|", "/"]
+    i = 0
+    while True:
+        clear_screen()
+        print(f"你正在受到保護 {animations[i % 4]} 一個你現在很安全:)")
+        i += 1
+        time.sleep(0.25)  # 更快一點的更新速度
+
+if __name__ == "__main__":
+    try:
+        print_protection_message()
+    except KeyboardInterrupt:
+        clear_screen()
+        print("保護已手動停止")
